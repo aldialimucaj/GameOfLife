@@ -18,13 +18,19 @@ public class Board extends JPanel {
         paintSprites(g);
     }
 
+    /**
+     * Called every time the panel gets repainted. it Calculates lifes next step and redraws.
+     *
+     * @param g
+     */
     private void paintSprites(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
 
+        // reset the canvas
         g.setColor(Color.lightGray);
         g.fillRect(0, 0, WINDOW_WIDTH * SPRITE_SIZE, WINDOW_HEIGHT * SPRITE_SIZE);
-        System.out.println(this.getSize().getWidth() + " -x- " + this.getSize().getHeight());
 
+        // recalc and redraw
         l.recalculate();
         l.drawAll(g2d);
     }
